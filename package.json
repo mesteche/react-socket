@@ -1,5 +1,5 @@
 {
-  "name": "react-socket",
+  "name": "@mesteche/react-socket",
   "version": "1.0.0",
   "description": "react-socket React component",
   "main": "lib/index.js",
@@ -33,7 +33,10 @@
   "author": "Mesteche",
   "homepage": "",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mesteche/react-socket.git"
+  },
   "keywords": [
     "react-component"
   ]

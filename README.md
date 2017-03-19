@@ -6,9 +6,9 @@
 
 A react-redux inspired library to deal with websocket.
 
-<!-- ## Installation -->
+## Installation
 
-<!-- `npm i --save react-socket` -->
+`npm i --save @mesteche/react-socket`
 
 ## API
 
@@ -31,7 +31,7 @@ Else the `<Socket>` component can create it with the following parameters as pro
 - `onmessage` A function to call when a message is recieved (the message will be passed as an argument)
 
 #### Example
-```js
+```jsx
 // main.js
 import React from 'react'
 import {render} from 'react-dom'
@@ -70,7 +70,7 @@ For instance, if you already use react-redux, you can use use react-redux's `con
 ##### `mapSendToProps` as an object
 In this example, 'Message' will be sent to the server when the button is clicked.
 
-```js
+```jsx
 // Demo.js
 import React from 'react'
 import { connect } from 'react-socket'
@@ -92,7 +92,7 @@ export default connect(mapSendToProps)(Demo)
 ##### `mapSendToProps` as a function
 This Example is similar to the previous one but `mapSendToProps` is used as a function.
 
-```js
+```jsx
 // Demo.js
 import React from 'react'
 import { connect } from 'react-socket'
@@ -115,7 +115,7 @@ export default connect(mapSendToProps)(Demo)
 In this example, we use the `onWsMessage` prop of the connected component to listen to the server.
 We also use react-redux to respond to such event by dispatching an action (see redux and react-redux documentation).
 
-```js
+```jsx
 // Demo.js
 import React from 'react'
 import { connect as wsConnect } from 'react-socket'
