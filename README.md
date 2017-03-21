@@ -8,8 +8,9 @@ A react-redux inspired library to deal with websocket.
 [Discord](https://discord.gg/bTujxkY)
 
 ## Installation
-
+### Using npm
 `npm i --save @mesteche/react-socket`
+### Using yarn
 `yarn add @mesteche/react-socket`
 
 ## API
