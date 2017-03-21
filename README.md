@@ -5,10 +5,12 @@
 [![Coveralls][coveralls-badge]][coveralls]
 
 A react-redux inspired library to deal with websocket.
+[Discord](https://discord.gg/bTujxkY)
 
 ## Installation
 
 `npm i --save @mesteche/react-socket`
+`yarn add @mesteche/react-socket`
 
 ## API
 
@@ -29,6 +31,8 @@ Else the `<Socket>` component can create it with the following parameters as pro
 - `onopen` A function to call when the connection is established
 - `onerror` A function to call if an errors occurs
 - `onmessage` A function to call when a message is recieved (the message will be passed as an argument)
+
+See [WebSocket documentation](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
 #### Example
 ```jsx
