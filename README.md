@@ -4,7 +4,7 @@
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
 
-A react-redux inspired library to deal with websocket.
+A react-redux inspired library to deal with websocket.  
 [Discord](https://discord.gg/bTujxkY)
 
 ## Installation

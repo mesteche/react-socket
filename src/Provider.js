@@ -1,10 +1,16 @@
-import React, {Component, Children, PropTypes as t} from 'react'
+import React, { Component, Children, PropTypes as t } from 'react'
+
+export const SOCK = Symbol('default socket id')
 
 export class Socket extends Component {
+  static socketPool = {
+    [SOCK]: null,
+  }
   static childContextTypes = {
-    socket: t.object,
+    socketPool: t.object,
   }
   static propTypes = {
+    id: t.any,
     children: t.node,
     socket: t.instanceOf(WebSocket),
     url: t.string,
@@ -14,6 +20,7 @@ export class Socket extends Component {
     onerror: t.func,
   }
   static defaultProps = {
+    id: SOCK,
     children: null,
     socket: null,
     url: `ws://${location.host}`,
@@ -25,9 +32,17 @@ export class Socket extends Component {
 
   constructor (props) {
     super(props)
-    this.socket = props.socket
+    this._id = props.id
+    Socket.socketPool[this._id] = Socket.socketPool[this._id] || props.socket
   }
-  
+
+  get socket () {
+    return Socket.socketPool[this._id]
+  }
+  set socket (sock) {
+    Socket.socketPool[this._id] = sock
+  }
+
   render () {
     return (
       this.socket && this.socket.readyState === WebSocket.OPEN
@@ -62,13 +77,8 @@ export class Socket extends Component {
   }
   
   getChildContext () {
-    return { socket: this.socket }
+    return { socketPool: Socket.socketPool }
   }
 }
 
 export default Socket
-
-// const usage = () => (
-//   <Socket url='ws://localhost:8080' protocol='echo-protocol'>
-//   </Socket>
-// )
