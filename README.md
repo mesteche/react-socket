@@ -15,13 +15,14 @@ A react-redux inspired library to deal with websocket.
 
 ## API
 
-### `<Socket [socket] [url] [protocol] [onopen] [onerror] [onmessage]>`
+### `<Socket [id] [socket] [url] [protocol] [onopen] [onerror] [onmessage]>`
 Makes the socket available to the children, anywhere below in the tree.  
 An open `<Socket>` is required for being able to use `connect()` on sub-components.
 
 #### Props
 
 - `children` the component down the tree. Must be an only child, if you need to have siblings, wrap them in a single component.
+- `id` if you want to have multiple socket connected at once, you must give them an id that will be used by `connect()` to identify the right socket.
 
 If you want to instanciate the connection outside of the `<Socket>` component, you should pass the `WebSocket` instance as a prop:
 - `socket` An instance of WebSocket
@@ -55,7 +56,7 @@ render(
 )
 ```
 
-### `connect(mapSendToProps, [onWsMessage])`
+### `connect(mapSendToProps, [config]])`
 Connects a React component to a `WebSocket`.
 Similarly to react-redux's `connect()`, it doesn't modify the component passed to it but returns a new component connected to the `WebSocket` instead.
 
@@ -69,7 +70,9 @@ For instance, if you already use react-redux, you can use use react-redux's `con
   - If a function is passed, it will be given the `send()` function of the socket.
   It is expected that it returns an object containning the props.
   It's up to you to use `send()` in these props.
-- `[onWsMessage]`(Function): This function will be called when a message is recieved from the server, with the message as parameter.
+- `[config]`(Object):
+  - `[onWsMessage]`(Function): This function will be called when a message is recieved from the server, with the message as parameter.
+  - `[socketId]`(String or Symbol): The id of the socket you're targetting.
 
 #### Examples
 ##### `mapSendToProps` as an object

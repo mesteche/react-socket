@@ -29,8 +29,7 @@ const ConnectedDemo2 = connect(
     sendMessage: msg => send(JSON.stringify({
       msg, mapType: 'function', componentName: 'ConnectedDemo2'
     }))
-  }),
-  {socketId: SOCK2}
+  })
 )(DemoComponent)
 
 let Demo = React.createClass({
@@ -47,7 +46,7 @@ let Demo = React.createClass({
               Object Message
             </ConnectedDemo1>
             <Socket url='ws://localhost:5075' protocol='echo-protocol' id={SOCK2}>
-              <ConnectedDemo2 color='red'>Function Message</ConnectedDemo2>
+              <ConnectedDemo2 color='red' socketId={SOCK2}>Function Message</ConnectedDemo2>
             </Socket>
           </div>
         </Socket>
