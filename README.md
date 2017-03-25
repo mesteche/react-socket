@@ -55,12 +55,11 @@ render(
   document.querySelector('#app')
 )
 ```
-
-### `connect(mapSendToProps, [config]])`
+### `connect(mapSendToProps)`
 Connects a React component to a `WebSocket`.
 Similarly to react-redux's `connect()`, it doesn't modify the component passed to it but returns a new component connected to the `WebSocket` instead.
 
-In addition to connect the component's props to the socket's `send()` method, the new component will expose a `onWsMessage` prop, for you to register a callback when a message is recieved from the server.
+In addition to connect the component's props to the socket's `send()` method, the new component will expose a `onWsMessage` and `socketId` prop, for you to register a callback when a message is recieved from the server and to select the socket you want to connect to.
 For instance, if you already use react-redux, you can use use react-redux's `connect()` on this new component to dispatch an action when a message arrives.
 
 #### Arguments
@@ -68,8 +67,14 @@ For instance, if you already use react-redux, you can use use react-redux's `con
 - `mapSendToProps`(Object or Function):
   - If an object is passed, each key is assumed to be a prop of the component, and the correspondign values are assumed to be functions that returns the data to be sent to the server. Each function will be wrapped into a `send()` call to the server.
   - If a function is passed, it will be given the `send()` function of the socket.
-  It is expected that it returns an object containning the props.
-  It's up to you to use `send()` in these props.
+    It is expected that it returns an object containning the props.
+    It's up to you to use `send()` in these props.
+
+### `connectBase(mapSendToProps, [config]])`
+Similar to `connect()`, except instead of exposing `onWsMessage` and `socketId` as props on the returned component, it accepts a `config` argument.
+
+#### Arguments
+Same as `connect()` plus :
 - `[config]`(Object):
   - `[onWsMessage]`(Function): This function will be called when a message is recieved from the server, with the message as parameter.
   - `[socketId]`(String or Symbol): The id of the socket you're targetting.
