@@ -1,6 +1,6 @@
 # react-socket
 
-[![Travis][build-badge]][build]
+[![Build Status](https://travis-ci.org/mesteche/react-socket.svg?branch=master)](https://travis-ci.org/mesteche/react-socket)
 [![npm (scoped)](https://img.shields.io/npm/v/@mesteche/react-socket.svg?style=flat)]()
 [![Coverage_Status](https://coveralls.io/repos/github/mesteche/react-socket/badge.svg?branch=master)](https://coveralls.io/github/mesteche/react-socket?branch=master)
 
