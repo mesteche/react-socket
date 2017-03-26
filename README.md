@@ -1,12 +1,12 @@
 # react-socket
 
 [![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
+[![npm (scoped)](https://img.shields.io/npm/v/@mesteche/react-socket.svg?style=flat)]()
+[![Coverage_Status](https://coveralls.io/repos/github/mesteche/react-socket/badge.svg?branch=master)](https://coveralls.io/github/mesteche/react-socket?branch=master)
+
+[![Discord](https://img.shields.io/badge/Discord-chat-blue.svg?style=social)](https://discord.gg/bTujxkY)
 
 A react-redux inspired library to deal with websocket.  
-[Discord](https://discord.gg/bTujxkY)
-
 ## Installation
 ### Using npm
 `npm i --save @mesteche/react-socket`
